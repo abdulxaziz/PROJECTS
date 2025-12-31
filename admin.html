@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Login Section -->
+        <div id="login-section" class="section">
+            <div class="login-box">
+                <h1>🎨 Admin Login</h1>
+                <form id="login-form">
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <p id="login-error" class="error"></p>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="section" style="display: none;">
+            <div class="dashboard-header">
+                <h1>Admin Dashboard</h1>
+                <button id="logout-btn" class="btn btn-danger">Logout</button>
+            </div>
+
+            <!-- Add Painting Form -->
+            <div class="form-section">
+                <h2>Add New Painting</h2>
+                <form id="add-painting-form">
+                    <input type="text" id="title" placeholder="Painting Title" required>
+                    <textarea id="description" placeholder="Description" required></textarea>
+                    <input type="number" id="price" placeholder="Price (₹)" required>
+                    <select id="status" required>
+                        <option value="">Select Status</option>
+                        <option value="Available">Available</option>
+                        <option value="Sold">Sold</option>
+                    </select>
+                    <input type="file" id="image-input" accept="image/*" required>
+                    <button type="submit" class="btn btn-primary">Upload Painting</button>
+                </form>
+                <p id="upload-message"></p>
+            </div>
+
+            <!-- Paintings List -->
+            <div class="paintings-list-section">
+                <h2>All Paintings</h2>
+                <div id="loading" class="loading">Loading paintings...</div>
+                <table id="paintings-table" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paintings-tbody"></tbody>
+                </table>
+                <p id="empty-message" class="empty-message" style="display: none;">No paintings added yet.</p>
+            </div>
+
+            <!-- Edit Modal -->
+            <div id="edit-modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Edit Painting</h2>
+                    <form id="edit-form">
+                        <input type="hidden" id="edit-id">
+                        <input type="text" id="edit-title" placeholder="Title" required>
+                        <textarea id="edit-description" placeholder="Description" required></textarea>
+                        <input type="number" id="edit-price" placeholder="Price" required>
+                        <select id="edit-status" required>
+                            <option value="Available">Available</option>
+                            <option value="Sold">Sold</option>
+                        </select>
+                        <input type="file" id="edit-image" accept="image/*">
+                        <p style="font-size: 0.9em; color: #666;">Leave image empty to keep current image</p>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

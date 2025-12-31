@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery</title>
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>🎨 Art Gallery</h1>
+            <a href="admin.html" class="admin-link">Admin Panel</a>
+        </div>
+    </header>
+
+    <main class="gallery-container">
+        <div id="loading" class="loading">Loading paintings...</div>
+        <div id="gallery" class="gallery-grid"></div>
+        <div id="empty-message" class="empty-message" style="display: none;">
+            No paintings available yet. Come back soon!
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Art Gallery. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal for painting details -->
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <p class="price">₹<span id="modal-price"></span></p>
+            <p class="status" id="modal-status"></p>
+            <div class="modal-buttons">
+                <button id="whatsapp-btn" class="btn btn-whatsapp">WhatsApp Buy</button>
+                <button id="email-btn" class="btn btn-email">Email Order</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/gallery.js"></script>
+</body>
+</html>
